@@ -1,15 +1,16 @@
-.card {
-  background-color: black;
-  padding: 10px;
-  margin: 5px;
+.info-img {
+  margin-top: 2rem;
+  border-radius: 0.75rem;
 }
 
-.info {
-  margin-top: 20px;
+section {
+  padding: 4rem 0;
 }
-.desc {
-  margin-top: 20px;
+
+iframe {
+  border-radius: 0.75rem;
 }
-.cards {
-  margin-top: 20px;
+
+.background-color {
+  background-color: rgba(0, 0, 0, 0.1);
 }
