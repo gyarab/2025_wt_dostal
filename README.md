@@ -1,22 +1,6 @@
-# Guido van Rossum
+# 2025 WT Dostál
+Toto je studentský repozitář pro předmět Webové technologie 2.F na Gymnáziu Arabská, śkolní rok 2025/2026.
 
-Guido van Rossum (31. 1. 1956, Nizozemsko) je počítačový programátor známý především jako autor jazyka **Python**.
-
-Python je dnes jedním z nejpopulárnějších programovacích jazyků používaný v několika odvětví
-
-## Hlavní cíle Pythonu
-- intuitivní, ale zároveň mocný jazyk
-- srozumitelný kód podobný angličtině
-- otevřený kód (open source)
-- vhodný pro běžné každodenní úkoly
-
-## Zajímavosti
-| Rok  |       Událost       |
-| ---- | ------------------- |
-| 1956 | Narození            |
-| 1982 | Magisterský titul   |
-| 2002 | Free Software Award |
-
-Více informací najdete na [Wikipedii](https://cs.wikipedia.org/wiki/Guido_van_Rossum)
-
-![Guido van Rossum](https://upload.wikimedia.org/wikipedia/commons/c/c6/Guido_van_Rossum.jpg)
+Repozitář obsahuje:
+- První prolinkovaný web na pokusy s Bootrapem v adresáři `prvni_web/`.
+- Referát o Guido van Rossumovi v souboru `referat.md`.
