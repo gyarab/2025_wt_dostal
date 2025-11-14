@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>JS Game</title>
+</head>
+
+<body>
+    <h1>JS Game</h1>
+    <p>Hádej cislo od 1 do 20</p>
+
+    <input id="newGameBtn" type="button" value="Nova Hra" onclick="newGame(); support()">
+    <br>
+    <input id="guess" type="number" name="guess">
+    <input id="guessBtn" type="button" value="Zkus">
+
+    <p>Počet pokusů <SPan id="attempts">0</SPan></p>
+
+    <script>
+        let secretNumber
+        let attempts
+
+        const attemptsEl = document.getElementById('attempts')
+
+        function newGame() {
+            secretNumber = Math.floor(Math.random() * 20) + 1
+            attempts = 0
+            updateAttempts()
+            console.log('---NEW GAME---')
+            console.log('secretNumber is', secretNumber)
+        }
+
+        function checkGuess() {
+            attempts++
+            updateAttempts()
+        }
+
+        function updateAttempts() {
+            attemptsEl.textContent = attempts
+        }
+
+        document.getElementById('guessBtn').addEventListener('click', checkGuess)
+        document.getElementById('guess').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                checkGuess()
+                e.srcElement.value = ''
+            }
+        })
+
+        function hlaska() {
+            alert('pospes')
+        }
+
+        function support() {
+            window.setTimeout(hlaska, 3000)
+        }
+
+        newGame()
+    </script>
+</body>
+
+</html>
