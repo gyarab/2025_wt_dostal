@@ -42,15 +42,14 @@
 
     <input id="newGameBtn" type="button" value="Nova Hra" onclick="newGame()">
     <br>
-    <input id="guess" type="number" name="guess">
+    <input id="guess" type="number" name="guess" min="1" max="20">
     <input id="guessBtn" type="button" value="Zkus">
 
-    <p>Počet pokusů <Span id="attempts">0</Span></p>
+    <p>Počet pokusů <span id="attempts">0</span></p>
 
     <script>
         let secretNumber
         let attempts
-        let isEndGame = false;
 
         const attemptsEl = document.getElementById('attempts')
         const guessInput = document.getElementById('guess')
@@ -73,7 +72,7 @@
 
         guessInput.addEventListener('input', function () {
             if (guessInput.value < 1 || guessInput.value > 20) {
-                console.log('Please enter a valid number');
+                console.log('not a valid number');
                 guessInput.value = '';
             }
         })
@@ -113,7 +112,6 @@
         function endGame(message) {
             console.log("---END GAME---")
             messageEl.textContent = message
-            isEndGame = true
             guessInput.disabled = true;
             guessBtn.disabled = true;
             alert(message)
