@@ -4,60 +4,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>JS Game</title>
+    <style>
+        body {
+            background-color: hsl(0, 0%, 15%);
+            color: white;
+            font-family: system-ui, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        input {
+            padding: 3px;
+            margin: 6px;
+            font-size: 1rem;
+            width: 80px;
+        }
+
+        button {
+            padding: 6px 12px;
+            font-size: 1rem;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
     <h1>JS Game</h1>
-    <p>Hádej cislo od 1 do 20</p>
+    <p id="message">Hádej cislo od 1 do 20</p>
 
-    <input id="newGameBtn" type="button" value="Nova Hra" onclick="newGame(); support()">
+    <input id="newGameBtn" type="button" value="Nova Hra" onclick="newGame()">
     <br>
     <input id="guess" type="number" name="guess">
     <input id="guessBtn" type="button" value="Zkus">
 
-    <p>Počet pokusů <SPan id="attempts">0</SPan></p>
+    <p>Počet pokusů <Span id="attempts">0</Span></p>
 
     <script>
         let secretNumber
         let attempts
+        let isEndGame = false;
 
         const attemptsEl = document.getElementById('attempts')
+        const guessInput = document.getElementById('guess')
+        const messageEl = document.getElementById('message')
+        const maxAttempts = 10
+        const guessBtn = document.getElementById("guessBtn")
 
         function newGame() {
             secretNumber = Math.floor(Math.random() * 20) + 1
+            messageEl.textContent = 'Hádej cislo od 1 do 20'
+            messageEl.style.color = "white"
+            guessInput.disabled = false;
+            guessBtn.disabled = false;
             attempts = 0
+            guessInput.value = '';
             updateAttempts()
             console.log('---NEW GAME---')
             console.log('secretNumber is', secretNumber)
         }
 
+        guessInput.addEventListener('input', function () {
+            if (guessInput.value < 1 || guessInput.value > 20) {
+                console.log('Please enter a valid number');
+                guessInput.value = '';
+            }
+        })
+
         function checkGuess() {
+            if (guessInput.value === '') {
+                messageEl.textContent = 'Please enter number'
+                return
+            }
             attempts++
             updateAttempts()
+            let message
+            if (guessInput.value == secretNumber) {
+                endGame('Výhra')
+                messageEl.style.color = 'green'
+                return
+            } else if (guessInput.value < secretNumber) {
+                message = 'Hádané číslo je větší'
+                console.log(message)
+                messageEl.textContent = message
+            } else {
+                message = 'Hádané číslo je menší'
+                console.log(message)
+                messageEl.textContent = message
+            }
+
+            if (attempts == maxAttempts) {
+                endGame('Konec hry - maximálních počet pokusů')
+                messageEl.style.color = 'red'
+            }
         }
 
         function updateAttempts() {
             attemptsEl.textContent = attempts
         }
 
+        function endGame(message) {
+            console.log("---END GAME---")
+            messageEl.textContent = message
+            isEndGame = true
+            guessInput.disabled = true;
+            guessBtn.disabled = true;
+            alert(message)
+        }
+
         document.getElementById('guessBtn').addEventListener('click', checkGuess)
-        document.getElementById('guess').addEventListener('keydown', function (e) {
+        guessInput.addEventListener('keydown', function (e) {
             if (e.key === 'Enter') {
                 checkGuess()
-                e.srcElement.value = ''
             }
         })
-
-        function hlaska() {
-            alert('pospes')
-        }
-
-        function support() {
-            window.setTimeout(hlaska, 3000)
-        }
-
         newGame()
     </script>
 </body>
