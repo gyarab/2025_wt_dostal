@@ -7,3 +7,4 @@ Repozitář obsahuje:
 - První prolinkovaný web na pokusy s Bootrapem v adresáři `prvni_web/`.
 - Referát o Guido van Rossumovi v souboru `referat.md`.
 - Microsite v adresáři `microsite/`.
+- JSGame v adresáři `jsgame/`.
