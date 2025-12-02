@@ -13,11 +13,34 @@
     <div class="container">
         <h1>VueJS DEMO</h1>
         <a href="https://vuejs.org/guide/introduction" target="_blank">VueJS docs</a>
-
         <div id="app">
-            {{ message }}
+            <form>
+                <div>
+                    Name: <input class="form-control" name="name" placeholder="Jméno sem: ">
+                </div>
+                <div>
+                    <select class="form-select" name="planet">
+                        <option value="mars">Mars - červerná planeta</option>
+                        <option value="venus">Venuše</option>
+                    </select>
+                </div>
+                <div>
+                    <input class="form-control" type="number" name="days" id="days">
+                </div>
+                <div>
+                    <input class="form-check-input" type="checkbox" id="terms">
+
+                    <label class="form-check-label" for="labels">Souhlasím s rizikem</label>
+                </div>
+                <div>
+                    <button class="btn btn-primary" :disabled="isValid">Odeslat</button>
+                </div>
+            </form>
+            <!-- {{ message }} {{counter -1}}
             <br>
-            <button @click="counter++">counter {{ counter }}</button>
+            {{'Random number: ' + Math.ceil(Math.random() * 6)}}
+            <br>
+            <button @click="counter++">Counter {{counter}}</button> -->
         </div>
     </div>
 
