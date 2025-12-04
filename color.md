@@ -4,7 +4,4 @@
 
 ## Psychologie barev
 
-- Modrožluté logo IKEA je okamžitě rozpoznatelné a unikátní právě díky svým barvám.
-- Barvy na logu zdůrazňují nejen jedinečnost společnosti, ale také její švédské kořeny.
-- **Modrá** barva vyvolává pocit klidu, důvěry a věrohodnosti značky.
-- **Žlutá** barva působí optimisticky a dává zákazníkům pozitivní dojem při pohledu na logo.
+Modrožluté logo IKEA je okamžitě rozpoznatelné a unikátní právě díky svým barvám. Barvy na logu zdůrazňují nejen jedinečnost společnosti, ale také její švédské kořeny. **Modrá** barva vyvolává pocit klidu, důvěry a věrohodnosti značky. **Žlutá** barva působí optimisticky a dává zákazníkům pozitivní dojem při pohledu na logo.
