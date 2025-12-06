@@ -4,9 +4,8 @@ Toto je studentský repozitář pro předmět Webové technologie 2.F na Gymnáz
 
 Repozitář obsahuje:
 
-- První prolinkovaný web na pokusy s Bootrapem v adresáři `prvni_web/`.
+- První prolinkovaný web na pokusy s Bootrapem v `prvni_web/`.
 - Referát o Guido van Rossumovi v souboru `referat.md`.
-- Microsite v adresáři `microsite/`.
-- JSGame v adresáři `jsgame/`.
-- vueJS web v adresáři `vuejs/`.
-- htmx web v adresáři `htmx/`.
+- Microsite "Barber Shop" v `microsite/`.
+- JSGame s JavaScript v `jsgame/`.
+- web - Bootstrap + VueJS, v `vuejs/`.
