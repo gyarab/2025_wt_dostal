@@ -8,3 +8,5 @@ Repozitář obsahuje:
 - Referát o Guido van Rossumovi v souboru `referat.md`.
 - Microsite v adresáři `microsite/`.
 - JSGame v adresáři `jsgame/`.
+- vueJS web v adresáři `vuejs/`.
+- htmx web v adresáři `htmx/`.
