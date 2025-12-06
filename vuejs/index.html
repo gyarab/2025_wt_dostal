@@ -11,49 +11,38 @@
 </head>
 
 <body>
-    <div class="container pt-4" style="max-width: 600px; padding-bottom: 400px;">
+    <div class="container pt-4" style="max-width: 624px; padding-bottom: 400px;">
         <h1 class="my-3 text-center">Registrace na meziplanetární výlet</h1>
-        <p>
-            <a href="https://vuejs.org/guide/introduction" target="_blank">VueJS docs</a>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo voluptates id dolore, odio commodi dolorum
-            impedit ab excepturi vitae illum suscipit perspiciatis repellendus adipisci, veniam cumque soluta tempore
-            eligendi debitis.
-        </p>
         <div id="app">
             <div class="card p-3 mb-4">
                 <form>
                     <div class="mb-3">
-                        <label for="name">Jméno astronauta</label>
+                        <label class="mb-1" for="name">Jméno astronauta</label>
                         <input class="form-control" type="text" id="name" name="name">
                     </div>
                     <div class="mb-3">
-                        <label for="planet">Destinace</label>
+                        <label class="mb-1" for="planet">Destinace</label>
                         <select class="form-select" id="planet" name="planet">
                             <option value="Mars">Mars</option>
                             <option value="Venuše">Venuše</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="days">Počet dní</label>
+                        <label class="mb-1" for="days">Počet dní</label>
                         <input class="form-control" type="number" id="days" name="days">
                     </div>
                     <div class="mb-3">
-                        <input class="form-check-input" type="checkbox" id="terms">
+                        <input class="mb-1 me-1" class="form-check-input" type="checkbox" id="terms">
                         <label class="form-check-label" for="terms">Souhlasím s podmínkami</label>
                     </div>
                     <div class="pb-3">
-                        <button class="btn btn-primary w-100" type="submit">Odeslat</button>
+                        <button class="btn btn-primary w-100" type="submit">Odeslat přihlášku</button>
                     </div>
                     <p class="text-muted">
                         Tento formulář nikam neposílá — vše se děje v prohlížeči.
                     </p>
                 </form>
             </div>
-            <!-- {{ message }} {{counter -1}}
-            <br>
-            {{'Random number: ' + Math.ceil(Math.random() * 6)}}
-            <br>
-            <button @click="counter++">Counter {{counter}}</button> -->
             <div class="card p-3">
                 <h2>Palubní lístek</h2>
                 <p>
