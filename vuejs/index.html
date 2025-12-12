@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset=" UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJS DEMO</title>
     <link rel="icon" href="./favicon.ico">
@@ -11,25 +11,32 @@
 </head>
 
 <body>
-    <div class="container pt-4" style="max-width: 624px; padding-bottom: 400px;">
+    <div class="container pt-4" style="max-width: 660px; padding-bottom: 400px;">
         <h1 class="my-3 text-center">Registrace na meziplanetární výlet</h1>
         <div id="app">
             <div class="card p-3 mb-4">
-                <form>
+                <form @submit.prevent="handleForm">
                     <div class="mb-3">
                         <label class="mb-1" for="name">Jméno astronauta</label>
-                        <input class="form-control" type="text" id="name" name="name">
+                        <input v-model="trip.name" @keyup="validate()" placeholder="Jan Novak" class="form-control"
+                            type="text" id="name" name="name">
+                        <div v-if="errors.name" class="text-danger">
+                            {{ this.errors.name}}
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="mb-1" for="planet">Destinace</label>
-                        <select class="form-select" id="planet" name="planet">
-                            <option value="Mars">Mars</option>
-                            <option value="Venuše">Venuše</option>
+                        <select v-model="trip.destination" class="form-select" id="planet" name="planet">
+                            <option disabled value="">Vyber planetu…</option>
+                            <option value="Mars">Mars - pro introverty, co nemusí kyslík</option>
+                            <option value="Měsíc">Měsíc - víkendovka s dobrou Wi-Fi</option>
+                            <option value="Jupiter">Jupiter - jen pro opravdu odolné</option>
+                            <option value="Pluto">Pluto - technicky možná ne planeta, ale proč ne</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label class="mb-1" for="days">Počet dní</label>
-                        <input class="form-control" type="number" id="days" name="days">
+                        <input v-model="trip.days" class="form-control" type="number" id="days" name="days">
                     </div>
                     <div class="mb-3">
                         <input class="mb-1 me-1" class="form-check-input" type="checkbox" id="terms">
@@ -37,7 +44,8 @@
                             pozdějí, něž je plánováno.</label>
                     </div>
                     <div class="pb-3">
-                        <button class="btn btn-primary w-100" type="submit">Odeslat přihlášku</button>
+                        <button class="btn btn-primary w-100" :disabled="!isValid" type="submit">Odeslat
+                            přihlášku</button>
                     </div>
                     <p class="text-muted">
                         Tento formulář nikam neposílá — vše se děje v prohlížeči.
@@ -47,9 +55,9 @@
             <div class="card p-3">
                 <h2>Palubní lístek</h2>
                 <p>
-                    Jméno: <strong>Tester</strong> <br>
-                    Destinace: <strong>Mars</strong> <br>
-                    Počet dní: <strong>3</strong> <br>
+                    Jméno: <strong>{{ trip.name }}</strong> <br>
+                    Destinace: <strong>{{ trip.destination }}</strong> <br>
+                    Počet dní: <strong>{{ trip.days }}</strong> <br>
                     Odhadovaná cena: <strong>2400 kreditů</strong> <br>
                 </p>
                 <p class="text-muted">
@@ -70,7 +78,33 @@
             data() {
                 return {
                     message: "Hello World!",
-                    counter: 0
+                    counter: 0,
+                    trip: {
+                        name: "",
+                        destination: "",
+                        days: 1,
+                        accepted: false,
+                    },
+
+                    errors: {}
+                }
+            },
+            computed: {
+                isValid() {
+                    // prevod na boolean !!
+                    return !!this.trip.name
+                }
+            },
+
+            methods: {
+                validate() {
+                    this.errors = {}
+                    if (!this.trip.name) {
+                        this.errors.name = "Jmeno je povinne"
+                    }
+                },
+                handleForm() {
+                    this.validate()
                 }
             }
         })
