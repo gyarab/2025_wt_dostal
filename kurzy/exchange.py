@@ -7,7 +7,6 @@ accepted_currency = ['CZK', 'AUD', 'BRL', 'CNY', 'DKK', 'EUR', 'PHP', 'HKD', 'IN
 
 res = httpx.get('https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt')
 
-print("server odpovedel:", res.status_code)
 lines = res.text.split('\n')
 print(f"Kurzy pro den: {Fore.GREEN}{lines[0].split(' ')[0]}")
 accepted_currency_text = ", ".join(accepted_currency)
