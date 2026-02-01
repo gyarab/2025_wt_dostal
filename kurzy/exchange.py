@@ -3,11 +3,16 @@ from colorama import Fore, Style, init
 
 init(autoreset=True)
 
-accepted_currency = ['CZK', 'AUD', 'BRL', 'CNY', 'DKK', 'EUR', 'PHP', 'HKD', 'INR', 'IDR', 'ISK', 'ILS', 'JPY', 'ZAR', 'CAD', 'KRW', 'HUF', 'MYR', 'MXN', 'XDR', 'NOK', 'NZD', 'PLN', 'RON', 'SGD', 'SEK', 'CHF', 'THB', 'TRY', 'USD', 'GBP']
+accepted_currency = ['CZK']
 
 res = httpx.get('https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt')
-
 lines = res.text.split('\n')
+lines.remove("")
+
+for line in lines[2:]: 
+    accepted_currency.append(line.split('|')[-2])
+
+
 print(f"Kurzy pro den: {Fore.GREEN}{lines[0].split(' ')[0]}")
 accepted_currency_text = ", ".join(accepted_currency)
 print(f"Podporavené měny: {Fore.GREEN}{accepted_currency_text}")
